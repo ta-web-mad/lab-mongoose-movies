@@ -1,5 +1,6 @@
 const express = require("express")
 const router = express.Router()
+const formatName = require("../helpers")
 const Celebrity = require("../models/Celebrity.model")
 
 // Endpoints
@@ -22,21 +23,13 @@ router.post("/new-celebrity", (req, res) => {
   let { name, occupation, catchPhrase } = req.body
 
   // Format name
-  let [artistName, artistLastname] = name.split(" ")
-  artistName =
-    artistName[0].toUpperCase() + artistName.substring(1).toLowerCase()
-  artistLastname =
-    artistLastname?.charAt(0).toUpperCase() +
-    artistLastname?.substring(1).toLowerCase()
-  name = artistName.concat(artistLastname ? ` ${artistLastname}` : "")
+  name = formatName(name)
 
   //  Format occupation
-  occupation =
-    occupation.charAt(0).toUpperCase() + occupation.substring(1).toLowerCase()
+  occupation = formatName(occupation)
 
   //Format catch phrase
-  catchPhrase =
-    catchPhrase.charAt(0).toUpperCase() + catchPhrase.substring(1).toLowerCase()
+  catchPhrase = formatName(catchPhrase)
 
   Celebrity.create({ name, occupation, catchPhrase })
     .then(() =>
@@ -84,21 +77,13 @@ router.post("/:id/", (req, res, next) => {
   let { name, occupation, catchPhrase } = req.body
 
   // Format name
-  let [artistName, artistLastname] = name.split(" ")
-  artistName =
-    artistName[0].toUpperCase() + artistName.substring(1).toLowerCase()
-  artistLastname =
-    artistLastname?.charAt(0).toUpperCase() +
-    artistLastname?.substring(1).toLowerCase()
-  name = artistName.concat(artistLastname ? ` ${artistLastname}` : "")
+  name = formatName(name)
 
   //  Format occupation
-  occupation =
-    occupation.charAt(0).toUpperCase() + occupation.substring(1).toLowerCase()
+  occupation = formatName(occupation)
 
   //Format catch phrase
-  catchPhrase =
-    catchPhrase.charAt(0).toUpperCase() + catchPhrase.substring(1).toLowerCase()
+  catchPhrase = formatName(catchPhrase)
 
   Celebrity.findByIdAndUpdate(req.params.id, { name, occupation, catchPhrase })
     .then(() =>
