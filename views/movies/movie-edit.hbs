@@ -18,7 +18,7 @@
                             <label for="genre">
                                 <h3>Genre</h3>
                             </label>
-                            <p>Current values: {{movie.genre}}</p>
+                            <p>Current values: {{#each movie.genre}}{{this}}{{#unless @last}}, {{/unless}}{{/each}}</p>
                             <select name="genre" class="form-control" id="genre" multiple>
                                 <option value="Action">Action</option>
                                 <option value="Adult">Adult</option>

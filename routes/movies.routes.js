@@ -71,12 +71,16 @@ router.post("/:id/", (req, res, next) => {
   // Format plotKeys
   const arrayKeys = plotKeywords.split(",").map((keyWord) => keyWord.trim())
 
-  Movie.findByIdAndUpdate(req.params.id, {
-    title,
-    genre,
-    plot,
-    plotKeywords: arrayKeys,
-  })
+  Movie.findByIdAndUpdate(
+    req.params.id,
+    {
+      title,
+      genre,
+      plot,
+      plotKeywords: arrayKeys,
+    },
+    { omitUndefined: true }
+  )
     .then(() =>
       Movie.find()
         .select("title")
