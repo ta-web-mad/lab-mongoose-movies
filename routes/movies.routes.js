@@ -54,4 +54,35 @@ router.post("/:id/delete", (req, res, next) =>
     )
     .catch((err) => next(err))
 )
+
+// Edit movie
+router.get("/:id/edit", (req, res) => {
+  Movie.findById(req.params.id)
+    .then((movie) => res.render("movies/movie-edit", { movie }))
+    .catch((err) => next(err))
+})
+
+router.post("/:id/", (req, res, next) => {
+  let { title, genre, plot, plotKeywords } = req.body
+
+  // Format name
+  title = formatName(title)
+
+  // Format plotKeys
+  const arrayKeys = plotKeywords.split(",").map((keyWord) => keyWord.trim())
+
+  Movie.findByIdAndUpdate(req.params.id, {
+    title,
+    genre,
+    plot,
+    plotKeywords: arrayKeys,
+  })
+    .then(() =>
+      Movie.find()
+        .select("title")
+        .then((allMovies) => res.render("movies/movies-list", { allMovies }))
+    )
+    .catch((err) => next(err))
+})
+
 module.exports = router
