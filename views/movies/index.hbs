@@ -1,0 +1,30 @@
+<div class="container">
+
+    <h2>Movies's list Page</h2>
+
+    <hr>
+
+    <ul>
+        {{#each movies}}
+        <li>{{title}}
+            <br>
+            <a class="btn btn-dark" href="/all-movies-details/{{id}}">See more</a>
+            <p><br>
+            <a class="btn btn-dark" href="/movies/{{id}}/edit">Edit</a>
+            <form method="POST" action="/peliculas/{{id}}/borrar">
+                <button type="submit" class="btn btn-dark">Delete</button>
+            </form>
+            </p>
+        </li>
+        <hr>
+        {{/each}}
+        <li>
+            <a class="btn btn-dark" href="/movies/new-movie">Create a new movie</a>
+        </li>
+
+    </ul>
+
+    {{#if error}}
+    <div class="error-message">{{error}}</div>
+    {{/if}}
+</div>
