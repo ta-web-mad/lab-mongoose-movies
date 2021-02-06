@@ -1,8 +1,9 @@
-<h1>Most searched celebrities in 2020:</h1>
+<h1>Most searched celebrities in 1020:</h1>
 {{#each allCelebrities}}
 <div>
-    {{name}} <a href="/celebrities/{{id}}">See more</a>
+    {{name}} <a href="/celebrities/{{id}}">See more</a> <a href="/celebrities/{{id}}/delete">Remove celebrity</a>
     {{id}}
     <hr>
 </div>
 {{/each}}
+<a href="/celebrities/new-celebrity">Add celebrity</a>
