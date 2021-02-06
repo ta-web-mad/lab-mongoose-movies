@@ -28,7 +28,7 @@ router.post("/new-celebrity", (req, res) => {
   artistLastname =
     artistLastname?.charAt(0).toUpperCase() +
     artistLastname?.substring(1).toLowerCase()
-  name = artistName.concat(artistLastname ? artistLastname : "")
+  name = artistName.concat(artistLastname ? ` ${artistLastname}` : "")
 
   //  Format occupation
   occupation =
@@ -39,16 +39,14 @@ router.post("/new-celebrity", (req, res) => {
     catchPhrase.charAt(0).toUpperCase() + catchPhrase.substring(1).toLowerCase()
 
   Celebrity.create({ name, occupation, catchPhrase })
-    .then((newCelebrity) =>
+    .then(() =>
       Celebrity.find()
         .select("name")
         .then((allCelebrities) =>
           res.render("celebrities/celebrities-list", { allCelebrities })
         )
     )
-    .catch((err) => {
-      res.render("celebrities/new-celebrity")
-    })
+    .catch((err) => res.render("celebrities/new-celebrity"))
 })
 
 // Celebrity detail
@@ -72,4 +70,45 @@ router.post("/:id/delete", (req, res, next) =>
     )
     .catch((err) => next(err))
 )
+
+// Edit celebrity
+router.get("/:id/edit", (req, res) => {
+  Celebrity.findById(req.params.id)
+    .then((celebrity) =>
+      res.render("celebrities/celebrities-edit", { celebrity })
+    )
+    .catch((err) => next(err))
+})
+
+router.post("/:id/", (req, res, next) => {
+  let { name, occupation, catchPhrase } = req.body
+
+  // Format name
+  let [artistName, artistLastname] = name.split(" ")
+  artistName =
+    artistName[0].toUpperCase() + artistName.substring(1).toLowerCase()
+  artistLastname =
+    artistLastname?.charAt(0).toUpperCase() +
+    artistLastname?.substring(1).toLowerCase()
+  name = artistName.concat(artistLastname ? ` ${artistLastname}` : "")
+
+  //  Format occupation
+  occupation =
+    occupation.charAt(0).toUpperCase() + occupation.substring(1).toLowerCase()
+
+  //Format catch phrase
+  catchPhrase =
+    catchPhrase.charAt(0).toUpperCase() + catchPhrase.substring(1).toLowerCase()
+
+  Celebrity.findByIdAndUpdate(req.params.id, { name, occupation, catchPhrase })
+    .then(() =>
+      Celebrity.find()
+        .select("name")
+        .then((allCelebrities) =>
+          res.render("celebrities/celebrities-list", { allCelebrities })
+        )
+    )
+    .catch((err) => next(err))
+})
+
 module.exports = router
