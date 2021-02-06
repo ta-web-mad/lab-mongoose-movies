@@ -4,6 +4,7 @@ const router = express.Router()
 const Celebrity = require('../models/celebrity.model')
 
 // Endpoints
+//CELEBRITIES LIST
 router.get('/', (req, res) => {
     Celebrity
         .find()
@@ -13,6 +14,21 @@ router.get('/', (req, res) => {
     
 })
 
+//CREATE NEW CELEBRITY
+router.get('/newCelebrity', (req, res) => res.render('celebrities/newCelebrity'))
+router.post('/newCelebrity', (req, res) => {
+    const {name, occupation, catchPhrase} = req.body
+    
+    Celebrity
+        .create({name, occupation, catchPhrase})
+        .then(celebrity => res.redirect('/celebrities'))
+        .catch(err => {
+            console.log('Error:'. err)
+            res.redirect('/celebrities/newCelebrity')
+        })
+})
+
+//CELEBRITY INFO
 router.get('/:id', (req, res) => {
     const celebID = req.params.id
     Celebrity
@@ -20,6 +36,20 @@ router.get('/:id', (req, res) => {
         .then(celeb => res.render('celebrities/celebrityInfo', celeb))
         .catch(err => console.log('Error', err))
 })
+
+//DELETE CELEBRITY
+router.post('/:id/delete', (req, res, next) => {
+    const celebID = req.params.id
+    Celebrity
+        .findByIdAndRemove(celebID)
+        .then(res.redirect('/celebrities'))
+        .catch(err => {
+            console.log('Error:', err)
+            next()
+        })
+})
+
+
 
 
 module.exports = router
