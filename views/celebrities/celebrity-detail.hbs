@@ -7,12 +7,15 @@
     </div>
     <div class="row">
         <div class="col">
-            <p>Occupation: {{celebrity.occupation}}</p>
-            <p>Catch phrase: <q><em>{{celebrity.catchPhrase}}</em></q></p>
+            <div class="details">
+                <p><strong>Occupation:</strong> {{celebrity.occupation}}</p>
+                <p> <strong>Catch phrase:</strong> <em><q>{{celebrity.catchPhrase}}</q></em></p>
+            </div>
+
         </div>
     </div>
     <div class="row">
-        <div class="col"><a class="btn btn-dark" href="/celebrities/{{celebrity.id}}/edit">Edit</a></div>
-        <div class="col"><a href="/celebrities">Go back</a></div>
+        <div class="col"><a class="btn btn-dark btn-green" href="/celebrities/{{celebrity.id}}/edit">Edit</a></div>
+        <div class="col"><a class="btn btn-dark" href="/celebrities">Go back</a></div>
     </div>
 </div>

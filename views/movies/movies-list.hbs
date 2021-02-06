@@ -6,25 +6,30 @@
     </div>
 
     {{#each allMovies}}
-    <div class="row">
-        <div class="col">{{title}}</div>
+    <div class="row mb-3">
         <div class="col">
-            <a href="/movies/{{id}}">See more</a>
+            <h3 class="movie-title">{{title}}</h3>
         </div>
     </div>
     <div class="row">
         <div class="col">
             <form action="/movies/{{id}}/delete" method="POST">
-                <button type="submit" class="btn btn-dark">Remove</button>
+                <button type="submit" class="btn btn-dark btn-red">Remove</button>
             </form>
         </div>
+        <div class="col"><a class="btn btn-dark btn-blue" href="/movies/{{id}}">See more</a></div>
     </div>
-    <hr>
+    <div class="row">
+        <div class="col-8">
+            <hr>
+        </div>
+    </div>
+
     {{/each}}
 
     <div class="row">
         <div class="col">
-            <a class="btn btn-dark" href="/movies/new-movie">Add movie</a>
+            <a class="btn btn-dark btn-green" href="/movies/new-movie">Add movie</a>
         </div>
         <div class="col">
             <a class="btn btn-dark" href="/">Go back</a>

@@ -1,26 +1,34 @@
 <div class="container">
     <div class="row">
-        <div class="col">
+        <div class="col-10">
             <h1>{{movie.title}}</h1>
             <hr>
         </div>
     </div>
     <div class="row">
         <div class="col-10">
-            <p>Genre/s:
-                {{#each movie.genre}}
-                {{this}}
-                {{/each}}</p>
-            <p>Plot: {{movie.plot}}</p>
-            <p>Plot Keywords:
-                {{#each movie.plotKeywords}}
-                {{this}} |
-                {{/each}}
-            </p>
+            <div class="details">
+                <p><strong>Genre/s:</strong>
+                    {{#each movie.genre}}
+                    {{this}}{{#unless @last}}, {{/unless}}
+                    {{/each}}
+                </p>
+                <p><strong>Plot:</strong> {{movie.plot}}</p>
+                <p><strong>Plot Keywords:</strong>
+                    {{#each movie.plotKeywords}}
+                    {{this}}{{#unless @last}} | {{/unless}}
+                    {{/each}}
+                </p>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="col"><a class="btn btn-dark" href="/movies/{{movie.id}}/edit">Edit</a></div>
-        <div class="col"><a href="/movies">Go back</a></div>
+        <div class="col-8">
+            <div class="row">
+                <div class="col"><a class="btn btn-dark btn-green" href="/movies/{{movie.id}}/edit">Edit</a></div>
+                <div class="col"><a class="btn btn-dark" href="/movies">Go back</a></div>
+            </div>
+        </div>
+
     </div>
 </div>

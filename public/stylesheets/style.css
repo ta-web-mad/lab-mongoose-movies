@@ -2,4 +2,40 @@ body {
   padding: 50px;
   font-family: sans-serif; }
 
+h2 {
+  font-size: 40px;
+  font-weight: 300; }
+
+.title {
+  margin: 80px auto; }
+  .title h1 {
+    font-size: 48px; }
+  .title p {
+    font-size: 24px; }
+
+.artist-name {
+  font-size: 20px;
+  font-weight: 100; }
+
+.details {
+  font-size: 20px;
+  font-weight: 200; }
+
+.movie-title {
+  font-size: 20px;
+  font-weight: 100;
+  padding-top: 10px; }
+
+.btn-blue {
+  background-color: #2c5a88;
+  border-color: #34485c; }
+
+.btn-green {
+  background-color: #358452;
+  border-color: #3b6149; }
+
+.btn-red {
+  background-color: #b13535;
+  border-color: #7d3939; }
+
 /*# sourceMappingURL=style.css.map */

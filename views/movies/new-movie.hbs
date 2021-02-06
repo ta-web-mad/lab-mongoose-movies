@@ -9,12 +9,12 @@
             <form method="POST" action="/movies/new-movie">
 
                 <div class="form-group">
-                    <label for="title">Title</label>
+                    <label for="title"><strong>Title</strong></label>
                     <input type="text" name="title" class="form-control" id="title">
                 </div>
 
                 <div class="form-group">
-                    <label for="genre">Genre</label>
+                    <label for="genre"><strong>Genre</strong></label>
                     <select name="genre" class="form-control" id="genre" multiple>
                         <option value="Action">Action</option>
                         <option value="Adult">Adult</option>
@@ -48,24 +48,21 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="plot">Plot</label>
+                    <label for="plot"><strong>Plot</strong></label>
                     <input type="text" name="plot" class="form-control" id="plot">
                 </div>
 
                 <div class="form-group">
-                    <label for="plotKeys">Plot Keys</label>
+                    <label for="plotKeys"><strong>Plot Keys</strong></label>
                     <input type="text" name="plotKeywords" class="form-control" id="plotKeys">
                 </div>
+                <div class="row">
+                    <div class="col"><button type="submit" class="btn btn-dark btn-green">Create</button></div>
+                    <div class="col"><a class="btn btn-dark" href="/movies">Go back</a></div>
+                </div>
 
-                <button type="submit" class="btn btn-dark">Create</button>
             </form>
         </div>
-    </div>
-    <div class="row">
-        <div class="col">
-            <a class="btn btn-dark" href="/movies">Go back</a>
 
-        </div>
-    </div>
 
-</div>
+    </div>

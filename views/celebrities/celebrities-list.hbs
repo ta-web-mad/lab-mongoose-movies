@@ -1,34 +1,47 @@
 <div class="container">
     <div class="row">
         <div class="col-9">
-            <h2>Most searched celebrities in 2020:</h2>
+            <h2>Your top celebrities:</h2>
+
             {{#each allCelebrities}}
             <div class="row">
                 <div class="col">
-                    {{name}}
-                </div>
-                <div class="col">
-                    <a href="/celebrities/{{id}}">See more</a>
+                    <p class="artist-name">{{name}}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
                     <form action="/celebrities/{{id}}/delete" method="POST">
-                        <button type="submit" class="btn btn-dark">Remove</button>
+                        <button type="submit" class="btn btn-dark btn-red">Remove</button>
                     </form>
                 </div>
+                <div class="col">
+                    <a class="btn btn-dark btn-blue" href="/celebrities/{{id}}">See more</a>
+                </div>
             </div>
-            <hr>
+            <div class="row">
+                <div class="col-8">
+                    <hr>
+                </div>
+            </div>
             {{/each}}
         </div>
     </div>
+
+
     <div class="row">
         <div class="col">
             <p>Missing any celebrity?</p>
-            <a class="btn btn-dark" href="/celebrities/new-celebrity">Add celebrity</a>
         </div>
-        <div class="col">
-            <a class="btn btn-dark" href="/">Go back</a>
+    </div>
+    <div class="row">
+        <div class="col-9">
+            <div class="row">
+                <div class="col"><a class="btn btn-dark btn-green" href="/celebrities/new-celebrity">Add celebrity</a>
+                </div>
+                <div class="col"><a class="btn btn-dark" href="/">Go back</a></div>
+            </div>
         </div>
+
     </div>
 </div>
