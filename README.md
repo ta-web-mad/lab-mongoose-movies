@@ -102,7 +102,7 @@ Here's the route we will be using:
 
 ### Steps we will follow in this iteration:
 
-1. Locate the `/celebrities` GET route in `routes/celebrities.js`.
+1. Create the `/celebrities` GET route in `routes/celebrities.js`.
 2. In the route callback:
    - Call the `Celebrity` model's `find` method to retrieve all the celebrities.
    - If there's an error, call the route's `next` function and return the error.
@@ -152,7 +152,7 @@ Now that we have a list of celebrities, as well as a personalized details page f
 
 ### Steps we will follow in this iteration:
 
-1. Locate the `/celebrities/new` GET route in `routes/celebrities.js`:
+1. Create the `/celebrities/new` GET route in `routes/celebrities.js`:
 2. In that route's callback:
 
 - Render the `celebrities/new` view.
@@ -163,7 +163,7 @@ Now that we have a list of celebrities, as well as a personalized details page f
    - Add a `<form>` tag that makes a POST request to `/celebrities`.
    - Add `<input>` tags inside the form so the user can fill in values for each attribute of the celebrity. Make an input for `name`, `occupation`, and `catchPhrase`
    - Add a `<button>` tag in the form so the user can submit the form once they are done filling it out.
-5. Locate the `/celebrities` post route in `routes/celebrities.js`.
+5. Create the `/celebrities` post route in `routes/celebrities.js`.
 6. In that route's callback:
    - Create an object with keys for `name`, `occupation`, and `catchPhrase`.
    - Values for those keys should come from the form (`req.body` is the object full of the values from the form)
@@ -219,7 +219,7 @@ Here are the routes we will be using:
    - Add `<input>` tags inside the form for each attirbute of the celebrity.
      - Bonus: When you render the edit form, make sure each of the input fields is pre-filled with the current value of the attribute for that celebrity
    - Add a `<button>` tag inside the form so that the user can submit the form once they are done editing.
-5. Locate the `/celebrities/:id` POST route in the `routes/celebrities.js` file.
+5. Create the `/celebrities/:id` POST route in the `routes/celebrities.js` file.
 6. In that route's callback:
    - Create an object with keys for each attribute of a celebrity (celebrity has 3 attributes. What were they again? Look back and review if you forgot.)
    - Values for those keys should come from the form submission (`req.body`).
