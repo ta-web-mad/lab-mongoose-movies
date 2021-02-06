@@ -26,6 +26,25 @@ router.post('/newMovie', (req, res) => {
         })
 })
 
+//EDIT MOVIE
+router.get('/:id/edit', (req,res) => {
+    const movieID = req.params.id
+
+    Movie
+        .findById(movieID)
+        .then(movie => res.render('movies/editMovie', movie))
+})
+router.post('/:id/edit', (req, res) => {
+    const movieID = req.params.id
+
+    const {title, genre, plot} = req.body
+
+    Movie
+        .findByIdAndUpdate(movieID, {title, genre, plot})
+        .then(movie => res.redirect('/movies'))
+        .catch(err => console.log('Error:', err))
+})
+
 //MOVIE INFO
 router.get('/:id', (req,res) => {
     movieID = req.params.id
@@ -45,6 +64,8 @@ router.post('/:id/delete', (req, res, next) => {
             next()
     })      
 })
+
+
 
 
 module.exports = router

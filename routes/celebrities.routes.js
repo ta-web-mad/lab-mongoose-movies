@@ -28,6 +28,26 @@ router.post('/newCelebrity', (req, res) => {
         })
 })
 
+//EDIT MOVIE
+router.get('/:id/edit', (req, res) => {
+    const celebID = req.params.id
+
+    Celebrity
+        .findById(celebID)
+        .then(celeb =>res.render('celebrities/editCelebrity', celeb))
+        .catch(err => console.log('Error:', err))
+})
+
+router.post('/:id/edit', (req, res) => {
+    const celebID = req.params.id
+    const {name, occupation, catchPhrase} = req.body
+
+    Celebrity
+        .findByIdAndUpdate(celebID, {name, occupation, catchPhrase})
+        .then(celeb => res.redirect('/celebrities'))
+        .catch(err => console.log('Error:', err))
+})
+
 //CELEBRITY INFO
 router.get('/:id', (req, res) => {
     const celebID = req.params.id
@@ -48,6 +68,8 @@ router.post('/:id/delete', (req, res, next) => {
             next()
         })
 })
+
+
 
 
 
