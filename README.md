@@ -102,7 +102,7 @@ Here's the route we will be using:
 
 ### Steps we will follow in this iteration:
 
-1. Create the `/celebrities` GET route in `routes/celebrities.js`.
+1. Create the `/celebrities` GET route in `routes/celebrities.routes.js`.
 2. In the route callback:
    - Call the `Celebrity` model's `find` method to retrieve all the celebrities.
    - If there's an error, call the route's `next` function and return the error.
@@ -128,7 +128,7 @@ Here's the route we will be using:
 
 ### Steps we will follow in this iteration:
 
-1. Create the `/celebrities/:id` GET route in `routes/celebrities.js`.
+1. Create the `/celebrities/:id` GET route in `routes/celebrities.routes.js`.
 2. In the route callback:
    - Call the `Celebrity` model's `findOne` or `findById` method to retrieve the details of a specific celebrity by its id.
    - If there's an error, call the route's `next` function and return the error.
@@ -152,7 +152,7 @@ Now that we have a list of celebrities, as well as a personalized details page f
 
 ### Steps we will follow in this iteration:
 
-1. Create the `/celebrities/new` GET route in `routes/celebrities.js`:
+1. Create the `/celebrities/new` GET route in `routes/celebrities.routes.js`:
 2. In that route's callback:
 
 - Render the `celebrities/new` view.
@@ -163,7 +163,7 @@ Now that we have a list of celebrities, as well as a personalized details page f
    - Add a `<form>` tag that makes a POST request to `/celebrities`.
    - Add `<input>` tags inside the form so the user can fill in values for each attribute of the celebrity. Make an input for `name`, `occupation`, and `catchPhrase`
    - Add a `<button>` tag in the form so the user can submit the form once they are done filling it out.
-5. Create the `/celebrities` post route in `routes/celebrities.js`.
+5. Create the `/celebrities` post route in `routes/celebrities.routes.js`.
 6. In that route's callback:
    - Create an object with keys for `name`, `occupation`, and `catchPhrase`.
    - Values for those keys should come from the form (`req.body` is the object full of the values from the form)
@@ -187,7 +187,7 @@ Now that we have a list of celebrities, a celebrity details page, and a page to 
 1. In the `views/celebrities/index.hbs` file:
    - As part of the loop, add a `<form>` tag that makes a POST request to `celebrities/:id/delete` where the `:id` is replaced by the actual `id` of each celebrity.
    - Add a `<button>` tag inside the form so that it can be submitted.
-2. Create the `/celebrities/:id/delete` POST route in your `routes/celebrities.js` file
+2. Create the `/celebrities/:id/delete` POST route in your `routes/celebrities.routes.js` file
 3. In that route's callback:
    - Use the `Celebrity` model's `findByIdAndRemove` method to delete the celebrity by its `id`.
    - If there's an error, call the route's `next` function and return the error
@@ -206,7 +206,7 @@ Here are the routes we will be using:
 
 ### Steps we will follow in this iteration:
 
-1. Create the `/celebrities/:id/edit` GET route in `routes/celebrities.js`.
+1. Create the `/celebrities/:id/edit` GET route in `routes/celebrities.routes.js`.
 2. In that route's callback:
    - Call the `Celebrity` model’s `findOne` or `findById` method to retrieve a specific celebrity by its id.
    - If there's an error, call the route's `next` function and return the error.
@@ -219,7 +219,7 @@ Here are the routes we will be using:
    - Add `<input>` tags inside the form for each attirbute of the celebrity.
      - Bonus: When you render the edit form, make sure each of the input fields is pre-filled with the current value of the attribute for that celebrity
    - Add a `<button>` tag inside the form so that the user can submit the form once they are done editing.
-5. Create the `/celebrities/:id` POST route in the `routes/celebrities.js` file.
+5. Create the `/celebrities/:id` POST route in the `routes/celebrities.routes.js` file.
 6. In that route's callback:
    - Create an object with keys for each attribute of a celebrity (celebrity has 3 attributes. What were they again? Look back and review if you forgot.)
    - Values for those keys should come from the form submission (`req.body`).
