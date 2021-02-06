@@ -12,10 +12,20 @@
             <a href="/movies/{{id}}">See more</a>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <form action="/movies/{{id}}/delete" method="POST">
+                <button type="submit" class="btn btn-dark">Remove</button>
+            </form>
+        </div>
+    </div>
     <hr>
     {{/each}}
 
     <div class="row">
+        <div class="col">
+            <a class="btn btn-dark" href="/movies/new-movie">Add movie</a>
+        </div>
         <div class="col">
             <a class="btn btn-dark" href="/">Go back</a>
         </div>
