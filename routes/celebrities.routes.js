@@ -85,7 +85,11 @@ router.post("/:id/", (req, res, next) => {
   //Format catch phrase
   catchPhrase = formatName(catchPhrase)
 
-  Celebrity.findByIdAndUpdate(req.params.id, { name, occupation, catchPhrase })
+  Celebrity.findByIdAndUpdate(
+    req.params.id,
+    { name, occupation, catchPhrase },
+    { omitUndefined: true }
+  )
     .then(() =>
       Celebrity.find()
         .select("name")
