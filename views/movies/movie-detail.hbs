@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1>{{movie.title}}</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-10">
+            <p>Genre/s:
+                {{#each movie.genre}}
+                {{this}}
+                {{/each}}</p>
+            <p>Plot: {{movie.plot}}</p>
+            <p>Plot Keywords:
+                {{#each movie.plotKeywords}}
+                {{this}}
+                {{/each}}
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        {{!-- <div class="col"><a class="btn btn-dark" href="/celebrities/{{celebrity.id}}/edit">Edit</a></div> --}}
+        <div class="col"><a href="/movies">Go back</a></div>
+    </div>
+</div>

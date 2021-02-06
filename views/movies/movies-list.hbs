@@ -4,14 +4,17 @@
             <h2>Movies list</h2>
         </div>
     </div>
+
+    {{#each allMovies}}
     <div class="row">
-        <div class="col-8">
-            {{#each allMovies}}
-            {{title}}
-            <hr>
-            {{/each}}
+        <div class="col">{{title}}</div>
+        <div class="col">
+            <a href="/movies/{{id}}">See more</a>
         </div>
     </div>
+    <hr>
+    {{/each}}
+
     <div class="row">
         <div class="col">
             <a class="btn btn-dark" href="/">Go back</a>
