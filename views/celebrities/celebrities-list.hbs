@@ -1,8 +1,10 @@
 <h1>Most searched celebrities in 1020:</h1>
 {{#each allCelebrities}}
 <div>
-    {{name}} <a href="/celebrities/{{id}}">See more</a> <a href="/celebrities/{{id}}/delete">Remove celebrity</a>
-    {{id}}
+    {{name}} <a href="/celebrities/{{id}}">See more</a>
+    <form action="/celebrities/{{id}}/delete" method="POST">
+        <button type="submit" class="btn btn-dark">Remove</button>
+    </form>
     <hr>
 </div>
 {{/each}}

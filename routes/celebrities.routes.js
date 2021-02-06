@@ -39,14 +39,13 @@ router.post("/new-celebrity", (req, res) => {
     catchPhrase.charAt(0).toUpperCase() + catchPhrase.substring(1).toLowerCase()
 
   Celebrity.create({ name, occupation, catchPhrase })
-    .then((newCelebrity) => {
-      console.log("url", req.originalUrl)
+    .then((newCelebrity) =>
       Celebrity.find()
         .select("name")
         .then((allCelebrities) =>
           res.render("celebrities/celebrities-list", { allCelebrities })
         )
-    })
+    )
     .catch((err) => {
       res.render("celebrities/new-celebrity")
     })
@@ -61,4 +60,16 @@ router.get("/:id", (req, res, next) =>
     .catch((err) => next(err))
 )
 
+// Delete celebrity
+router.post("/:id/delete", (req, res, next) =>
+  Celebrity.findByIdAndRemove(req.params.id)
+    .then(() =>
+      Celebrity.find()
+        .select("name")
+        .then((allCelebrities) =>
+          res.render("celebrities/celebrities-list", { allCelebrities })
+        )
+    )
+    .catch((err) => next(err))
+)
 module.exports = router
