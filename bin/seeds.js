@@ -1,9 +1,8 @@
 const mongoose = require("mongoose")
-// const Celebrity = require("../models/Celebrity.model")
-// const dbName = "celebrities"
+//const Celebrity = require("../models/Celebrity.model")
+const dbName = "mongooseMovies"
 
 const Movie = require("../models/Movie.model")
-const dbName = "movies"
 
 mongoose.connect(`mongodb://localhost/${dbName}`, {
   useNewUrlParser: true,
