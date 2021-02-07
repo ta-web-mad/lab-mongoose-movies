@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 
 const mongoose = require('mongoose')
-const { findByIdAndRemove } = require('../model/celebrity.model')
 
 const Celebrity = require('../model/celebrity.model')
 
