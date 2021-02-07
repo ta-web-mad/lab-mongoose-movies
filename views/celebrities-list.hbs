@@ -1,0 +1,20 @@
+<div class="container">
+   <h1 class="epic">CELEBRITIES</h1>
+<a href="/celebrities/new-celebrities"class="btn bg-light text-success">ADD A NEW CELEBRITY</a>
+   <hr>
+{{#each celebrities}}
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="name">{{name}}</h2>
+        <p class="occupation">- {{occupation}}</p>
+        <a href="/celebrities/details/{{_id}}" class="btn bg-light text-success">SEE MORE DETAILS</a>
+        
+        <form method="POST" action="/celebrities/details/{{_id}}/delete">
+        <button class="btn bg-light text-danger">DELETE</a>
+        </form>
+    </div>
+</div>
+    <hr>
+
+{{/each}}
+</div>
