@@ -14,6 +14,33 @@ router.get('/', (req, res) => {
         .catch(err => console.log('ERROR:', err))
 })
 
+//Details
+router.get('/details/:_id', (req, res) => {
+    const movie_id = req.params._id
+
+    Movie
+        .findById(movie_id)
+        .then(movie => res.render('movies/details', movie))
+        .catch(err => console.log('ERROR:', err))
+
+})
+
+//Add
+router.get('/new', (req, res) => res.render('movies/new-form'))
+
+router.post('/new', (req, res) => {
+    const { title, genre, plot } = req.body
+
+    Movie
+        .create({ title, genre, plot })
+        .then(response => res.redirect(`/movies`))
+        .catch(err => console.log('ERROR:', err))
+
+})
+
+
+
+
 
 
 
