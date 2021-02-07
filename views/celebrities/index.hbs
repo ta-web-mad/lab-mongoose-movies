@@ -6,9 +6,17 @@
         {{#each celebrities}}
         <li>
             {{name}} 
+
             <a href="/celebrities/details/{{id}}">Details</a>
+            |
+            <a href="/celebrities/edit/{{id}}">Edit</a>
+
+            <form method="POST" action="/celebrities/{{id}}/delete">
+                <button type="submit">Delete</button>
+            </form>
         </li>
         {{/each}}
     </ul>
+    <a href="/celebrities/new">Add new</a>
 
 </div>
