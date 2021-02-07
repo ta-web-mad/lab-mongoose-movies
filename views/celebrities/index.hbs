@@ -1,0 +1,17 @@
+<h2>Estos son mis Celebrities</h2>
+
+<ul>
+    {{#each celebrities}}
+    <li>{{name}}
+        <a href="/celebrities/details/{{id}}">VER</a>
+    </li>
+    <form method="POST" action="/celebrity/{{id}}/borrar">
+        <button type="submit" class="btn btn-dark">Delete</button>
+    </form>
+    {{/each}}
+
+    <li>
+        <a class="btn btn-dark" href="/celebrities/new-celebrity">Create a new celebrity</a>
+    </li>
+
+</ul>

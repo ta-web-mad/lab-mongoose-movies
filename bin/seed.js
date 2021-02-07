@@ -8,16 +8,16 @@ const thecelebrities = [
     {
         name: 'Tony Stark',
         occupation: 'SuperHero',
-        catchPrahse: 'The truth is....I am Iron Man',
+        catchPhrase: 'The truth is....I am Iron Man',
 
-    },{
+    }, {
         name: 'Peter Parker',
-        occupation: 'SuperHero',
-        catchPrahse: 'With great power comes great responsibility. This is my gift, my curse. Who am I? I am Spiderman',
-    },{
+        occupation: 'Your friend and neighbor',
+        catchPhrase: 'With great power comes great responsibility. This is my gift, my curse. Who am I? I am Spiderman',
+    }, {
         name: 'Thor',
         occupation: 'Good of Thunder',
-        catchPrahse: 'I am Thor, son of Odin and as long as there is life in my chest ... I can not think of anything else to say. Are you ready to die?',
+        catchPhrase: 'I am Thor, son of Odin and as long as there is life in my chest ... I can not think of anything else to say. Are you ready to die?',
     },
 ]
 

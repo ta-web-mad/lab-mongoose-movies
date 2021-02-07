@@ -1,9 +1,11 @@
 const mongoose = require("mongoose")
 
+
 const celebritySchema = new mongoose.Schema ({
     name: String,
     occupation: String,
-    chatPhrase: String
+    catchPhrase: String
+    
 },{
     timestramps: true
 })
