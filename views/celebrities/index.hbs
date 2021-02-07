@@ -1,13 +1,29 @@
-{{#each celebs}}
+<div class="container">.
 
-    <h2>{{name}}</h2>
+    <div class="row">
+        {{#each celebs}}.
 
-    [<a href="/celebrities/{{id}}">info</a>]
+            <div class="col-4">
+                
+                <h2>{{name}}</h2>
 
-    <form action="celebrities/{{id}}/delete" method="POST">
-        <button type="submit">delete</button>
-    </form>
 
-    [<a href="celebrities/{{id}}/edit">edit</a>}
+                <div class="d-flex">
+                    <a class="btn btn-dark" href="/celebrities/{{id}}">info</a>
 
-{{/each}}
+                    <form action="celebrities/{{id}}/delete" method="POST">
+                        <button class="btn btn-dark" type="submit">delete</button>
+                    </form>
+
+                    <a class="btn btn-dark" href="celebrities/{{id}}/edit">edit</a>
+                </div>
+                
+
+            </div>
+        
+
+         {{/each}}
+    </div>
+    
+</div>
+

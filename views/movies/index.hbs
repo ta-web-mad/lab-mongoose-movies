@@ -1,13 +1,27 @@
-{{#each movies}}
+<div class="container">
 
-    <h2>{{title}}</h2>
+    <div class="row">
 
-    [<a href="/movies/{{id}}">info</a>]
+        {{#each movies}}
 
-    <form action="movies/{{id}}/delete" method="POST">
-        <button type="submit">delete</button>
-    </form>
+            <div class="col-4">
 
-    [<a href="/movies/{{id}}/edit">edit</a>]
+                <h2>{{title}}</h2>
 
-{{/each}}
+                <div class="d-flex">
+                    <a class="btn btn-dark" href="/movies/{{id}}">info</a>
+
+                    <form action="movies/{{id}}/delete" method="POST">
+                        <button class="btn btn-dark" type="submit">delete</button>
+                    </form>
+
+                    <a class="btn btn-dark" href="/movies/{{id}}/edit">edit</a>
+                </div>
+                
+            </div>
+
+        {{/each}}
+
+    </div>
+    
+</div>

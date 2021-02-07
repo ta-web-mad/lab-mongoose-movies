@@ -6,22 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
 
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/">Home</a>
+        <a class="nav-link" href="/celebrities">Celebrities List</a>
+        <a class="nav-link" href="/celebrities/newCelebrity">Create Celebrity</a>
+        <a class="nav-link" href="/movies">Movies List</a>
+        <a class="nav-link" href="/movies/newMovie" tabindex="-1" aria-disabled="true">Create Movie</a>
+      </div>
+    </div>
+  </nav>
+
   {{{body}}}
 
-  <footer>
-    <a href="/">Home</a>
-    <a href="/celebrities">List of celebrities</a>
-    <a href="/celebrities/newCelebrity">Create new celebrity</a>
-    <a href="/movies">List of movies</a>
-    <a href="/movies/newMovie">Create new movie</a>
-
-
-  </footer>
+ 
 
   <script src="/javascripts/script.js"></script>
 </body>

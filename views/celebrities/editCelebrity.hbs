@@ -1,22 +1,29 @@
-<h2>Edit {{name}}</h2>
-<form action="/celebrities/{{id}}/edit" method="POST">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
 
-    <label for="name">
-        Name:
-        <input name="name" type="text" value="{{name}}">
-    </label>
+            <h2>Edit {{name}}</h2>
 
-    <label for="occupation">
-        Occupation:
-        <input name="occupation" type="text" value="{{occupation}}">
-    </label>
+            <form action="/celebrities/{{id}}/edit" method="POST">
 
-    <label for="catchPhrase">
-        Catch Phrase:
-        <input name="catchPhrase" type="text" value="{{catchPhrase}}">
-    </label>
-    
-    <button type="submit">Edit Celebrity</button>
+                <label for="name">
+                    Name:
+                    <input name="name" type="text" value="{{name}}">
+                </label>
 
+                <label for="occupation">
+                    Occupation:
+                    <input name="occupation" type="text" value="{{occupation}}">
+                </label>
 
-</form>
+                <label for="catchPhrase">
+                    Catch Phrase:
+                    <input name="catchPhrase" type="text" value="{{catchPhrase}}">
+                </label>
+                
+                <button class="btn btn-dark" type="submit">Edit Celebrity</button>
+
+            </form>
+        </div>
+    </div>
+</div>
