@@ -8,9 +8,16 @@
             {{title}} 
         </li>
         <a href="/movies/details/{{id}}">Details</a>
+        |
+        <a href="/movies/edit/{{id}}">Edit</a>
+        
+        <form method="POST" action="/movies/{{id}}/delete">
+            <button type="submit">Delete</button>
+        </form>
+
         {{/each}}
     </ul>
 
-<a href="/movies/new">Add new</a>
+<a href="/movies/new">Add a movie</a>
 
 </div>

@@ -36,6 +36,9 @@ router.post('/new', (req, res) => {
         .then(response => res.redirect(`/celebrities`))
         .catch(err => console.log('ERROR:', err))
 
+    if (!name.length || !occupation.length || !catchPhrase.length) {
+        res.render('celebrities/new-form', {errorMsg: "Fill in all the fields."})
+    }
 })
 
 //Delete
@@ -62,10 +65,15 @@ router.post('/edit/:_id', (req, res) => {
     const {name, occupation, catchPhrase} = req.body
     const celebrity_id = req.params._id
 
+    if (!name.length || !occupation.length || !catchPhrase.length) {
+        res.redirect('/celebrities')
+    } else {
     Celebrity
     .findByIdAndUpdate(celebrity_id, {name, occupation, catchPhrase})
     .then(celebrity => res.redirect(`/celebrities/details/${celebrity._id}`))
     .catch(err => console.log('ERROR:', err))
+    }
 })
+
 
 module.exports = router

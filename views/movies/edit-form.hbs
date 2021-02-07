@@ -1,9 +1,9 @@
-<h2>Add new</h2>
+<h2>Edit {{title}}</h2>
 <hr>
-<form method="POST" action="/movies/new">
+<form method="POST" action="/movies/edit/{{id}}">
     <div class="form-group">
         <label for="title">Title</label>
-        <input name="title" type="text" class="form-control" id="title">
+        <input name="title" type="text" class="form-control" id="title" value="{{title}}">
     </div>
 
     <div class="form-group">
@@ -26,9 +26,9 @@
 
     <div class="form-group">
         <label for="plot">Movie plot</label>
-        <input name="plot" type="text" class="form-control" id="plot">
+        <input name="plot" type="text" class="form-control" id="plot" value="{{plot}}">
     </div>
-    <button type="submit" class="btn btn-dark">Add new movie</button>
+    <button type="submit" class="btn btn-dark">Edit</button>
 </form>
 
 <a href="/movies">Back to list</a>
