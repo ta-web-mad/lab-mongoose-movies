@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>Listado de Celebridades</h2>
+
+    <hr>
+
+    <ul>
+        {{#each celebsArr}}
+        <li>{{name}}</li>
+        <a href="celebrities/{{id}}">Detalles</a>
+        {{/each}}
+    </ul>
+</div>
