@@ -1,0 +1,22 @@
+<div class="container">
+
+    <h2>List of movies</h2>
+
+    <hr>
+    
+    <ul>
+        {{#each moviesList}}
+        <li>{{title}}</li>
+        <a href="movies/{{id}}">Details</a>
+        <form action="movies/{{id}}/delete" method="POST">
+            <button type="submit" class="btn btn-dark">Delete Movie</button>
+        </form>
+        {{/each}}
+
+    <br>
+    <br>
+    
+    <a href="/movies/new">Add a new Movie</a>
+
+    </ul>
+</div>

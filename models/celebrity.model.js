@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const celebSchema = new mongoose.Schema({
     name: String,
     occupation: String,
-    catchPhrase: String
+    catchPhrase: {type: String, required: true}
 })
 
 const Celeb = mongoose.model('celeb', celebSchema)
