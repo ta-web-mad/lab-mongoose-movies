@@ -17,12 +17,12 @@ router.get('/movies/:id', (req, res) => {
 
     if(req.params.id == 'new') {
         res.render('pages/movies/new')
-    }
-
-    Movie
+    } else {
+        Movie
         .findById(req.params.id)
         .then(movie => res.render('pages/movies/show', {movie}))
         .catch(err => console.log('There was an error:', err))
+    }
 })
 
 // Create movie (POST)

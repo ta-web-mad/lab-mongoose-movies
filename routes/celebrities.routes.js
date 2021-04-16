@@ -21,9 +21,8 @@ router.get('/celebrities/:id', (req, res) => {
 
     if(req.params.id == 'new') {
         res.render('pages/celebrities/new')
-    }
-
-    Celebrity
+    } else {
+            Celebrity
         .findById(req.params.id)
         .then(celebrity => {
             // console.log(celebrity)
@@ -31,6 +30,7 @@ router.get('/celebrities/:id', (req, res) => {
             res.render('pages/celebrities/show', {celebrity})
         })
         .catch(err => console.log('There was an error:', err))
+    }
 })
 
 // Create celebrity (POST)
