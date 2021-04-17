@@ -12,6 +12,7 @@ router.get('/celebrities', (req, res, next) => {
     Celebrity
         .find()
         .then(vip => res.render('pages/celebrities/index', { vip }))
+        
         .catch(err => {
             next();
             console.log('Error!', err)
@@ -19,15 +20,21 @@ router.get('/celebrities', (req, res, next) => {
 })
 
 
-// router.get('/libros/detalles/:Celebrity_id', (req, res) => {
+ router.get('/celebrities/:id', (req, res) => {
 
-//     const { Celebrity_id } = req.params
+    const { id } = req.params
 
-//     Celebrity
-//         .findById(Celebrity_id)
-//         .then(theCelebrity => res.render('pages/Celebrity-detail', theCelebrity))
-//         .catch(err => console.log('Error!', err))
-// })
+    Celebrity
+        .findById(id)
+        .then(theCelebrity => {
+            res.render('pages/celebrities/show', theCelebrity)
+            console.log('ESTAMOS PASANDO:', theCelebrity)
+        })
+        .catch(err => {
+            next();
+            console.log('Error!', err)
+        })
+    })
 
 
 
