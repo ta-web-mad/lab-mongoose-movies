@@ -53,6 +53,19 @@ router.post('/celebrities/new', (req, res) => {
         })
 })
 
+router.post('/celebrities/:id/delete', (req, res, next) => {
+
+    const { id } = req.params
+
+    Celebrity
+        .findByIdAndRemove(id)
+        .then(() => res.redirect('/celebrities/index'))
+        .catch(err => {
+            next();
+            console.log('Error!', err)
+        })
+})
+
 
 
 module.exports = router
