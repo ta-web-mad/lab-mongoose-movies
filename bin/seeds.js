@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 
 // 2. - Model requirement
 const Celebrity = require('./../models/celebrity')
+const Movie = require('./../models/movie')
 
 // 3 .- Data to seed
 const celebrities = [
@@ -37,10 +38,36 @@ const celebrities = [
 ]
 
 // 4.- TSeeding time!
-Celebrity
-    .create(celebrities)
-    .then(data => {
-        console.log('VIP Here:', data)
+// Celebrity
+//     .create(celebrities)
+//     .then(data => {
+//         console.log('VIP Here:', data)
+//         mongoose.connection.close();
+//     })
+//     .catch(err => console.log('se produjo un error...', err))
+
+const movies = [
+    {
+        title: "Messi The Goat",
+        genre: "Sports, Documentary",
+        plot: "This documentary goes deep inside the life of the greatest football player of all times"
+    },
+    {
+        title: "I am Legend",
+        genre: "Action, drama, sci-fi",
+        plot: "Human being is about to dissapear due to a world pandemic. Coincidence?"
+    },
+    {
+        title: "Jumanji",
+        genre: "Comedy, adventure",
+        plot: "A game is able to change the reallity. In order to go back to normal, a group of friends need to finish the game"
+    }
+]
+
+Movie
+    .create(movies)
+    .then(response => {
+        //console.log("Here you have our movies", response)
         mongoose.connection.close();
     })
-    .catch(err => console.log('se produjo un error...', err))
+    .catch(err => console.log("Something was wrong...", err))
