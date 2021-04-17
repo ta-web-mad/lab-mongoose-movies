@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Our celebrities</h2>
+    <hr>
+    <ul>
+        {{#each allCelebrities}}
+        <li>{{name}}
+            <br>
+            <br>
+            <div class="list">
+                <a href="/celebrities/{{id}}" class="btn btn-dark">Go to details</a>
+                <a href="/celebrities/{{id}}/edit" class="btn btn-dark">Edit this celebrity</a>
+                <form action="/celebrities/{{id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-dark">Delete this celebrity</button>
+                </form>
+            </div>
+            <br>
+            <hr>
+        </li>
+        {{/each}}
+    </ul>
+    <hr>
+    <a href="/" class="btn btn-dark spaced">Back to the home page</a>
+    <a href="/celebrities/new" class="btn btn-dark">Add a new celebrity</a>
+    <br>
+    <br>
+</div>

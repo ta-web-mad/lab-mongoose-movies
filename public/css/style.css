@@ -2,7 +2,23 @@ body {
   font-family: sans-serif;
   font-weight: 200; }
 
+p,
+li,
+.bigger {
+  font-size: 25px; }
+
+li {
+  margin-bottom: 2em; }
+
 .navbar {
   margin-bottom: 50px; }
+
+.spaced {
+  margin-right: 3em; }
+
+.list {
+  display: flex;
+  justify-content: space-between;
+  width: 50%; }
 
 /*# sourceMappingURL=style.css.map */
