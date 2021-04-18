@@ -1,0 +1,29 @@
+
+<div class="container">
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <h1>New Movie</h1>
+            <hr>
+
+            <form action="/movies/new" method="POST">
+                <div class="form-group">
+                    <label for="ttl">Title</label>
+                    <input type="text" class="form-control" id="ttl" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="gen">Genre</label>
+                    <input type="text" class="form-control" id="gen" name="genre">
+                </div>
+                <div class="form-group">
+                    <label for="plt">Plot</label>
+                    <input type="text" class="form-control" id="plt" name="plot">
+                </div>
+
+                <button type="submit" class="btn btn-dark btn-block">Add movie</button>
+            </form>
+
+        </div>
+    </div>
+</div>

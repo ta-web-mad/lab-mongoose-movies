@@ -22,6 +22,7 @@ require('./config/locals.config')(app)
 // Routes index
 require('./routes')(app)
 
+
 // Error handling
 require('./config/error-handlers.config')(app)
 
