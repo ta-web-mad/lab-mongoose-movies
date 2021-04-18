@@ -1,5 +1,6 @@
 const express = require('express')
 const Celebrity = require('../models/celebrity')
+const Movies = require('../models/movies')
 const router = express.Router()
 
 // Endpoints
@@ -56,5 +57,59 @@ router.post('/celebrities/:celebrities_id/delete', (req, res, next) => {
             console.log('Error!', err)
         })
 })
+
+
+router.get('/movies', (req, res, next) => {
+
+    Movies
+        .find()
+        .then(movies => {
+            res.render('pages/movies/index', { movies })
+        })
+        .catch(err => {
+            next()
+            console.log('Error!', err)
+        })
+})
+
+router.get('/movies/:movies_id', (req, res, next) => {
+
+    const { movies_id } = req.params
+
+    Movies
+        .findById(movies_id)
+        .then(theMovie => res.render('pages/movies/show', theMovie))
+        .catch(err => {
+            next()
+            console.log('Error!', err)
+        })
+})
+
+router.get('/movies/new', (req, res) => res.render('pages/movies/new'))
+
+router.post('/movies/new', (req, res) => {
+
+    const { title, genre, plot } = req.body
+
+    Movies
+        .create({ title, genre, plot })
+        .then(() => res.redirect('/movies'))
+        .catch(err => {
+            res.redirect('/movies/new?msg=Error-Try Again')
+            console.log('Error!', err)
+        })
+})
+
+router.post('/movies/:movies_id/delete', (req, res, next) => {
+    const { movies_id } = req.params
+    Movies
+        .findByIdAndRemove(movies_id)
+        .then(() => res.redirect('/movies'))
+        .catch(err => {
+            next();
+            console.log('Error!', err)
+        })
+})
+
 
 module.exports = router
