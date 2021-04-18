@@ -1,0 +1,15 @@
+<section class="container">
+    {{#each data}}
+    <h2>{{title}}</h2>
+    <a class="btn btn-dark" href="/movies/details/{{id}}">View profile</a>
+    <form action="/movies/delete/{{id}}" method="POST"><button type="submit" class="btn btn-danger">Delete
+            profile</button></form>
+    {{/each}}
+
+
+    {{#if msg}}
+    <div id="message">
+        <p>{{msg}}</p>
+    </div>
+    {{/if}}
+</section>
