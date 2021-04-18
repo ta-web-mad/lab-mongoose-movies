@@ -1,0 +1,12 @@
+<div class="container">
+    <h2>Movies:</h2>
+    {{#each movies}}
+    <div class="movie-card">
+        <a href="/movies/{{id}}">{{title}}</a>
+
+        <form action="/movies/{{id}}/delete" method="POST">
+            <button type="submit" class="mini-btn">delete</button>
+        </form>
+    </div>
+    {{/each}}
+</div>
