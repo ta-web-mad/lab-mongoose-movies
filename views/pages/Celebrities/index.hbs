@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Celebrities index view</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            {{#each allCelebrities}}
+            <h3>
+                <a href="/celebrities/{{id}}">{{name}}</a>
+            </h3>
+            <div class="row">
+                <div class="col-md-5">
+                    <form action="/celebrities/{{id}}/delete" method="POST">
+                        <button type="submit" class="btn btn-dark btn-block">Delete</button>
+                    </form>
+                </div>
+
+                <div class="col-md-5">
+
+                    <a href="/celebrities/{{id}}/edit">Edit</a>
+                </div>
+
+            </div>
+            {{/each}}
+
+        </div>
+        <div class="col-md-4">
+            <h3>
+                <a href="/celebrities/new">New celebrity</a>
+
+            </h3>
+
+
+        </div>
+    </div>
+
+
+</div>
