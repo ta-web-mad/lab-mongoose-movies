@@ -5,4 +5,14 @@ body {
 .navbar {
   margin-bottom: 50px; }
 
+.theMovies {
+  padding-bottom: 25px; }
+
+.button {
+  margin-top: 7px;
+  background-color: aqua;
+  color: black;
+  font-weight: bold;
+  border-radius: 7px; }
+
 /*# sourceMappingURL=style.css.map */
