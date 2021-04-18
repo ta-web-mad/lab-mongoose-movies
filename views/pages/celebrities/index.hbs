@@ -1,6 +1,15 @@
 <section class="container">
     {{#each data}}
     <h2>{{name}}</h2>
-    <a href="/celebrities/{{id}}">View profile</a>
+    <a class="btn btn-dark" href="/celebrities/details/{{id}}">View profile</a>
+    <form action="/celebrities/delete/{{id}}" method="POST"><button type="submit" class="btn btn-danger">Delete
+            profile</button></form>
     {{/each}}
+
+
+    {{#if msg}}
+    <div id="message">
+        <p>{{msg}}</p>
+    </div>
+    {{/if}}
 </section>
