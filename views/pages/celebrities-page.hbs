@@ -1,0 +1,28 @@
+<div class="container">
+    <h2>Spanish celebrities</h2>
+    <div class="row" "celeb">
+
+
+        {{#each allCeleb}}
+        <div class="celeb">
+
+            <li>{{name}}
+                <br>
+                <br>
+                <form action="/celebrities/show/{{id}}" method="POST">
+                    <button type="submit" class="btn btn-dark">Info</button>
+                </form>
+                <form action="/celebrities/edit?celeb_id={{id}}" method="POST">
+                    <button type="submit" class="btn btn-dark">Edit</button>
+                </form>
+                <form action="/celebrities/{{id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-dark">Eliminar</button>
+                </form>
+
+
+        </div>
+
+        {{/each}}
+
+    </div>
+</div>
