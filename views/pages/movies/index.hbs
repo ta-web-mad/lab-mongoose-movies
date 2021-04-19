@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Listado de Peliculas</h1>
+            <hr>
+            <ul>
+                {{#each movies}}
+                <li>{{title}} <a href="/movies/{{id}}">Sobre la pelicula</a> | <form action="/movies/{{id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-dark">delete</button>
+                </form>
+                </li>
+                {{/each}}
+            </ul>
+            <hr>
+
+            <div class="row justify-content-around">
+
+                <a href="/movies/new" class="btn btn-dark">crear una pelicula</a>
+                <a href="/" class="btn btn-dark">Volver al incio</a>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+
+            <h1>Nueva pelicula</h1>
+            <hr>
+
+            <form action="/movies/new" method="POST">
+                <div class="form-group">
+                    <label for="title">title</label>
+                    <input type="text" class="form-control" id="title" name="{{title}}">
+                </div>
+                <div class="form-group">
+                    <label for="genre">genre</label>
+                    <input type="text" class="form-control" id="desc" name="{{genre}}">
+                </div>
+                <div class="form-group">
+                    <label for="plot">plot</label>
+                    <input type="text" class="form-control" id="auth" name="{{plot}}">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Crear pelicula </button>
+            </form>
+
+        </div>
+
+    </div>
+</div>

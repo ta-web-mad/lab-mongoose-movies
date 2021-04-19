@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Listado de celebrities</h1>
+            <hr>
+            <ul>
+                {{#each response}}
+                <li>{{name}} <a href="/celebrities/{{id}}">Sobre la celebridad</a> | <form action="/celebrities/{{id}}/delete" method="POST">
+                    <button type="submit" class="btn btn-dark">delete</button>
+                </form>
+                </li>
+                {{/each}}
+            </ul>
+            <hr>
+
+            <div class="row justify-content-around">
+
+                <a href="/celebrities/new" class="btn btn-dark">crear un famoso</a>
+                <a href="/" class="btn btn-dark">Volver al incio</a>
+            </div>
+            
+        </div>
+        <div class="col-md-6">
+        
+            <h1>Nueva celebrity</h1>
+            <hr>
+        
+            <form action="/celebrities/new" method="POST">
+                <div class="form-group">
+                    <label for="name">name</label>
+                    <input type="text" class="form-control" id="title" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="occupation">occupation</label>
+                    <input type="text" class="form-control" id="desc" name="occupation">
+                </div>
+                <div class="form-group">
+                    <label for="catchPhrase">catchPhrase</label>
+                    <input type="text" class="form-control" id="auth" name="catchPhrase">
+                </div>
+                <button type="submit" class="btn btn-dark btn-block">Crear famoso </button>
+            </form>
+        
+        </div>
+
+    </div>
+</div>
